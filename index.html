@@ -258,6 +258,23 @@ footer a:hover{color:var(--gold)}
 
 .updated{text-align:center;font-size:.8rem;color:var(--muted);padding:10px 0 0}
 
+/* logo link */
+.nav-logo{display:inline-flex;align-items:center;line-height:0}
+.nav-logo img{transition:opacity .2s}
+.nav-logo:hover img{opacity:.75}
+
+/* back-to-top button */
+.to-top{position:fixed;right:24px;bottom:26px;z-index:65;width:48px;height:48px;border-radius:50%;
+  background:var(--teal);color:var(--cream);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(13,50,47,.35);
+  opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .3s,transform .3s,background .2s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--teal-deep)}
+.to-top svg{width:22px;height:22px}
+@media(max-width:600px){.to-top{right:16px;bottom:80px;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.to-top{transition:opacity .3s}}
+
 /* ---------- responsive ---------- */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:40px;padding:52px 0 70px}
@@ -282,11 +299,14 @@ footer a:hover{color:var(--gold)}
 </style>
 </head>
 <body>
+<span id="top"></span>
 
 <!-- NAV -->
 <header class="nav">
   <div class="wrap">
-    <img src="images/logo.png" alt="Logo Rumah Tahfizh Center — Yayasan Al Quran Lima Benua">
+    <a href="#top" class="nav-logo" aria-label="Kembali ke atas">
+      <img src="images/logo.png" alt="Logo Rumah Tahfizh Center — Yayasan Al Quran Lima Benua">
+    </a>
     <a href="#gabung" class="nav-cta">Sedekah Sekarang</a>
   </div>
 </header>
@@ -549,12 +569,28 @@ footer a:hover{color:var(--gold)}
   <a href="#gabung">Mulai Sedekah Rp2.000 →</a>
 </div>
 
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" aria-label="Kembali ke atas halaman">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <script>
 // scroll reveal
 const io = new IntersectionObserver((es)=>{
   es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// back-to-top: muncul setelah scroll, gulir halus ke atas
+const toTop = document.getElementById('toTop');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > 500){ toTop.classList.add('show'); }
+  else{ toTop.classList.remove('show'); }
+}, {passive:true});
+toTop.addEventListener('click', ()=>{
+  window.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' });
+});
 </script>
 </body>
 </html>
