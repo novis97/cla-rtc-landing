@@ -93,6 +93,8 @@
   --teal-bright:#1a5f5c;
   --gold:#c9a668;
   --gold-soft:#e3d3ad;
+  --hi:#f2e200;
+  --hi-deep:#ffe600;
   --cream:#f6f1e6;
   --cream-deep:#efe6d4;
   --paper:#fbf8f1;
@@ -119,8 +121,8 @@ a{color:inherit;text-decoration:none}
 .nav{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(18,67,63,.08)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
 .nav img{height:40px;width:auto}
-.nav-cta{font-weight:600;font-size:.92rem;background:var(--teal);color:var(--cream);padding:10px 20px;border-radius:999px;transition:.2s}
-.nav-cta:hover{background:var(--teal-deep)}
+.nav-cta{font-weight:700;font-size:.92rem;background:var(--hi);color:#111;padding:10px 20px;border-radius:999px;transition:.2s;box-shadow:0 2px 12px rgba(242,226,0,.4)}
+.nav-cta:hover{background:var(--hi-deep)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--teal-deep);color:var(--cream);overflow:hidden}
@@ -135,8 +137,8 @@ a{color:inherit;text-decoration:none}
 .hero .sub{margin-top:24px;font-size:1.12rem;color:rgba(246,241,230,.82);max-width:32ch}
 .hero-actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-block;font-weight:600;font-size:1rem;padding:15px 30px;border-radius:999px;transition:.2s;cursor:pointer;border:none}
-.btn-gold{background:var(--gold);color:#3a2c10}
-.btn-gold:hover{background:#d8b878;transform:translateY(-2px)}
+.btn-gold{background:var(--hi);color:#111;font-weight:700;box-shadow:0 4px 18px rgba(242,226,0,.45)}
+.btn-gold:hover{background:var(--hi-deep);transform:translateY(-2px);box-shadow:0 6px 22px rgba(255,230,0,.6)}
 .btn-ghost{border:1px solid rgba(227,211,173,.4);color:var(--cream)}
 .btn-ghost:hover{background:rgba(227,211,173,.12)}
 .hero-figure{position:relative}
@@ -257,7 +259,7 @@ footer a:hover{color:var(--gold)}
 
 /* sticky mobile cta */
 .sticky-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--teal-deep);padding:12px 16px;box-shadow:0 -6px 24px rgba(0,0,0,.2)}
-.sticky-cta a{display:block;text-align:center;background:var(--gold);color:#3a2c10;font-weight:700;padding:14px;border-radius:12px;font-size:1rem}
+.sticky-cta a{display:block;text-align:center;background:var(--hi);color:#111;font-weight:700;padding:14px;border-radius:12px;font-size:1rem}
 
 .updated{text-align:center;font-size:.8rem;color:var(--muted);padding:10px 0 0}
 
